@@ -1,7 +1,10 @@
 pipeline {
   agent { label 'ci-cd-node' } 
 
-  tools { maven 'maven-3-9-6' }   
+  tools { 
+    jdk 'JDK21'
+    maven 'maven-3-9-6'
+    }   
 
   parameters {
     choice(
