@@ -1,11 +1,11 @@
 #!/bin/bash
 #
 # === CONFIGURATION ===
-AWS_ACCOUNT_ID="999568710647"
+AWS_ACCOUNT_ID="957877468227"
 AWS_REGION="us-east-2"
 ECR_REPO_NAME="fintech-app"
 EKS_NAMESPACE="fintech"
-DOMAIN_NAME="dominionsystem.org"
+DOMAIN_NAME="chris-systems.com"
 APP_PORT=8080
 
 # === GO TO PROJECT ROOT ===
@@ -78,7 +78,7 @@ jobs:
       - name: Configure kubectl
         uses: aws-actions/eks-setup-kubectl@v1
         with:
-          cluster-name: dominion-cluster
+          cluster-name: class40-prod-chris
           region: $AWS_REGION
 
       - name: Apply Kubernetes Resources

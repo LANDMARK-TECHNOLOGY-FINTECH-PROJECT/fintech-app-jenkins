@@ -1,7 +1,7 @@
 pipeline {
   agent { label 'ci-cd-node' }
 
-  tools { maven 'maven-3-9-11' }
+  tools { maven 'maven-3-9-6' }
 
   parameters {
     choice(
@@ -18,7 +18,7 @@ pipeline {
 
     string(
       name: 'REGION',
-      defaultValue: 'us-west-2',
+      defaultValue: 'us-east-2',
       description: 'AWS Region'
     )
 
@@ -54,8 +54,7 @@ pipeline {
 
   options {
     disableConcurrentBuilds()
-    timestamps()
-    ansiColor('xterm')
+    timestamps()    
     buildDiscarder(logRotator(numToKeepStr: '30', artifactNumToKeepStr: '30'))
     timeout(time: 60, unit: 'MINUTES')
   }
