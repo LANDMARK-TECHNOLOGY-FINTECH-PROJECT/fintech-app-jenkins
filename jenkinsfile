@@ -1,7 +1,12 @@
 pipeline {
   agent { label 'ci-cd-node' }
+   
+  environment {
+    JAVA_HOME = "/usr/lib/jvm/java-21-openjdk-amd64"
+    PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+  }
 
-  tools { maven 'maven-3-9-6' }
+  tools { maven 'maven-3-9-6' }   
 
   parameters {
     choice(
