@@ -1,10 +1,5 @@
 pipeline {
-  agent { label 'ci-cd-node' }
-   
-  environment {
-    JAVA_HOME = "/usr/lib/jvm/java-21-openjdk-amd64"
-    PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
-  }
+  agent { label 'ci-cd-node' } 
 
   tools { maven 'maven-3-9-6' }   
 
@@ -55,6 +50,10 @@ pipeline {
   environment {
     AWS_REGION = "${params.REGION}"
     KUBECONFIG = "${WORKSPACE}/.kube/config"
+
+    JAVA_HOME  = "/usr/lib/jvm/java-21-openjdk-amd64"
+    PATH       = "${env.JAVA_HOME}/bin:${env.PATH}"
+  }
   }
 
   options {
